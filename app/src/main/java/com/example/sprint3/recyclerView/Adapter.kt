@@ -27,6 +27,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val viewGroup = LayoutInflater.from(parent.context).inflate(com.example.sprint3.R.layout.list_layout, parent, false)
         return ViewHolder(viewGroup)
+
     }
 
     override fun getItemCount(): Int {
@@ -47,7 +48,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
            /* callback?.onItemSelected(currentSelection)*/
 
 
-        notifyItemChanged(position)
+
             val manager = (view.context as AppCompatActivity).supportFragmentManager
             val bundle = Bundle()
             bundle.putInt(MainActivity.ITEM_KEY, position)
@@ -57,6 +58,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
                 .add(fragment, "first")
                 .addToBackStack("thisbacko")
                 .commit()
+            notifyDataSetChanged()
         }
 
     }

@@ -8,11 +8,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sprint3.activities.MainActivity
+import com.example.sprint3.customViews.RatingView.Companion.finalRating
 import com.example.sprint3.model.Items
 import com.example.sprint3.model.ItemsRepository.Companion.list
+import com.example.sprint3.recyclerView.Adapter
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_rating.*
 import kotlinx.android.synthetic.main.list_layout.*
 
@@ -48,9 +53,9 @@ class RatingFragment : DialogFragment() {
         // Inflate the layout for this fragment
         var id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP" as Int
 
-        ratingTest = list[id].rating
-        return inflater.inflate(com.example.sprint3.R.layout.fragment_rating, container, false)
 
+
+        return inflater.inflate(com.example.sprint3.R.layout.fragment_rating, container, false)
 
 
 
@@ -63,8 +68,17 @@ class RatingFragment : DialogFragment() {
 
         Log.i("lognow", "name = ${list[id].name}id = ${id.toString()}")
 
-        edit.hint=list[id].name
 
+        edit.setText(list[id].name)
+        btn.setOnClickListener {
+            list.add(Items(edit.text.toString(), finalRating))
+           // recycle_view.adapter?.notifyItemInserted(id) ?: 0
+            getActivity()!!.getSupportFragmentManager().popBackStack();
+        }
+        btn2.setOnClickListener {
+            list.removeAt(id)
+            getActivity()!!.getSupportFragmentManager().popBackStack();
+        }
        // relative.rating= list[id].rating
         //relative.rating
     }

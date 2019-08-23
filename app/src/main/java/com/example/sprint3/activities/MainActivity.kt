@@ -65,7 +65,6 @@ class MainActivity() : AppCompatActivity(), RatingFragment.OnFragmentInteraction
         val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         var adapter = Adapter(list)
 
-        recycle_view.setHasFixedSize(true)
         recycle_view.layoutManager = manager
         recycle_view.adapter = adapter
 

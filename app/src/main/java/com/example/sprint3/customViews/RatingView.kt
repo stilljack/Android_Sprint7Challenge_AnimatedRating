@@ -43,6 +43,7 @@ companion object {
         star1.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.blacktored))
 
  invalidate()
+        startAnimation(RatingFragment.ratingTest)
    star1.setOnClickListener{
          startAnimation(1)
      }
@@ -63,57 +64,6 @@ companion object {
 
 
 
-
-
-       /* star1.setImageDrawable(
-            ContextCompat.getDrawable(
-                context,
-                android.R.drawable.ic_media_previous
-            )
-        )
-        star1.setOnClickListener {
-            startAnimation(1)
-        }
-
-
-
-        star1.setImageDrawable(
-            ContextCompat.getDrawable(
-                context,
-                android.R.drawable.ic_btn_speak_now
-            )
-        )
-        star2.setOnClickListener {
-            startAnimation(2)
-        }
-
-
-        star1.setImageDrawable(
-            ContextCompat.getDrawable(
-                context,
-                android.R.drawable.ic_lock_lock
-            )
-        )
-        star4.setOnClickListener {
-            startAnimation(3)
-        }
-
-        star1.setImageDrawable(
-            ContextCompat.getDrawable(
-                context,
-                android.R.drawable.ic_lock_lock
-            )
-        )
-        star5.setOnClickListener {
-            startAnimation(3)
-        }*/
-
-
-
-
-       // star1.layoutParams = imageLayoutParams
-      //  star2.layoutParams = imageLayoutParams
-      //  star3.layoutParams = imageLayoutParams
         }
     fun startAnimation (position:Int) {
         val starFull = ContextCompat.getDrawable(context, R.drawable.redtoblack)
@@ -126,6 +76,7 @@ companion object {
             star5.setImageDrawable(starEmpty)
             (starFull as Animatable).start()
             invalidate()
+            finalRating=1
         }
         else if(position == 2) {
             star1.setImageDrawable(starFull)
@@ -135,7 +86,7 @@ companion object {
             star5.setImageDrawable(starEmpty)
             (starFull as Animatable).start()
             invalidate()
-
+            finalRating=2
         }
         else if(position == 3) {
             star1.setImageDrawable(starFull)
@@ -143,10 +94,9 @@ companion object {
             star3.setImageDrawable(starFull)
             star4.setImageDrawable(starEmpty)
             star5.setImageDrawable(starEmpty)
+            (starFull as Animatable).start()
             invalidate()
-          /*  (star1 as Animatable).start()
-            (star2 as Animatable).start()
-                (star3 as Animatable).start()*/
+            finalRating=3
         }
             else if (position == 4) {
                 star1.setImageDrawable(starFull)
@@ -154,11 +104,9 @@ companion object {
                 star3.setImageDrawable(starFull)
                 star4.setImageDrawable(starFull)
                 star5.setImageDrawable(starEmpty)
-            /*    (star1 as Animatable).start()
-                (star2 as Animatable).start()
-                (star3 as Animatable).start()
-                (star4 as Animatable).start()*/
+            (starFull as Animatable).start()
             invalidate()
+            finalRating=4
             }
             else if (position == 5) {
                 star1.setImageDrawable(starFull)
@@ -166,12 +114,9 @@ companion object {
                 star3.setImageDrawable(starFull)
                 star4.setImageDrawable(starFull)
                 star5.setImageDrawable(starFull)
-          /*      (star1 as Animatable).start()
-                (star2 as Animatable).start()
-                (star3 as Animatable).start()
-                (star4 as Animatable).start()
-                (star5 as Animatable).start()*/
+            (starFull as Animatable).start()
             invalidate()
+            finalRating=5
             }
         // will get the position interacted with, then adjust the stars up or down based on the position and state of the stars at said position
         //THEN we can either write directly to ItemsRepository.list or create a seperate function to handle book keeping
