@@ -2,7 +2,6 @@ package com.example.sprint3.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.AdapterListUpdateCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sprint3.R
@@ -34,6 +33,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 // play with along the way
 //.2. reyclerview working, if ugly TODO: fix xml for recycler view
 //.3. dialog fragment added, TODO: EDIT XML TO PROPERLY DISPLAY item.title plus item.rating as ratingview
+//.4. Adding customview:RatingView
 
 class MainActivity : AppCompatActivity(), RatingFragment.OnFragmentInteractionListener {
     override fun onFragmentInteraction(item: Items) {
@@ -56,13 +56,13 @@ class MainActivity : AppCompatActivity(), RatingFragment.OnFragmentInteractionLi
         recycle_view.adapter = adapter
 
         //TODO REMOVE THIS TEST
-        btn_button.setOnClickListener {
+        /*btn_button.setOnClickListener {
             val fragment =
                 RatingFragment()
             supportFragmentManager.beginTransaction()
                 .add(fragment, "test")
                 .commit()
-        }
+        }*/
 
     }
 }
