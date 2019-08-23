@@ -38,6 +38,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 //.3. dialog fragment added, TODO: EDIT XML TO PROPERLY DISPLAY item.title plus item.rating as ratingview
 //.4. Adding customview:RatingView
 //.5. adapter to fragment
+//.6 TODO: Make animation more fluid... less crap
 
 class MainActivity() : AppCompatActivity(), RatingFragment.OnFragmentInteractionListener{
     /*Adapter.OnRecyclerInterfaceListener*/

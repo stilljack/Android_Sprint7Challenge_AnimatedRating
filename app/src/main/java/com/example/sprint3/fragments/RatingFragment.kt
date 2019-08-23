@@ -61,10 +61,10 @@ class RatingFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Log.i("lognow", "id = ${id.toString()}")
-        rating.text = list[id].rating.toString()
+        Log.i("lognow", "name = ${list[id].name}id = ${id.toString()}")
+
         edit.hint=list[id].name
-        name.text=list[id].name
+
        // relative.rating= list[id].rating
         //relative.rating
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="RatingClass">
+    <declare-styleable name="RatingView">
     <attr name="rating" format="integer"/>
-    <attr name="layout_weight" format="float"/>
+    <attr name="img" format="reference"/>
     </declare-styleable>
 </resources>
