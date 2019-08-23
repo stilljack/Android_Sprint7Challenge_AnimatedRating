@@ -28,6 +28,29 @@ companion object {
         val star3:ImageView = findViewById(R.id.star3)
         val star4:ImageView = findViewById(R.id.star4)
         val star5:ImageView = findViewById(R.id.star5)
+
+     star1.setOnClickListener{
+         startAnimation(1)
+     }
+        star2.setOnClickListener{
+            startAnimation(2)
+        }
+        star3.setOnClickListener{
+            startAnimation(3)
+        }
+        star4.setOnClickListener{
+            startAnimation(4)
+        }
+        star5.setOnClickListener{
+            startAnimation(5)
+        }
+
+
+
+
+
+
+
        /* star1.setImageDrawable(
             ContextCompat.getDrawable(
                 context,

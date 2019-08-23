@@ -13,7 +13,6 @@
     android:layout_height="match_parent"
     android:id="@+id/llcardview"
     >
-
     <TextView
             android:id="@+id/tv_item_name"
             android:text="placeholder"
@@ -23,24 +22,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
         />
-        <TextView
-            android:id="@+id/tv_item_name2"
-            android:text="placeholder"
-            android:textStyle="bold"
-            android:textSize="27dp"
-            android:layout_marginStart="16dp"
-         android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <!--this will become our customview-->
-
-        <ImageView
+    <TextView
+        android:id="@+id/tv_rating"
+        android:text="placeholder"
+        android:textStyle="bold"
+        android:textSize="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+        <!--
+        <com.example.sprint3.customViews.RatingView
             android:transitionName="shared_image_trans"
             android:id="@+id/iv_item_drawable"
             android:src="@drawable/ic_launcher_background"
             android:adjustViewBounds="true"
-            android:layout_width="50dp"
-            android:layout_height="350dp"
-            />
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            />this will become our customview-->
 
 </LinearLayout>
 </androidx.cardview.widget.CardView>
