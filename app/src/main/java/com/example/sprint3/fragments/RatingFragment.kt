@@ -12,6 +12,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.sprint3.activities.MainActivity
 import com.example.sprint3.model.Items
+import com.example.sprint3.model.ItemsRepository.Companion.list
+import kotlinx.android.synthetic.main.fragment_rating.*
+import kotlinx.android.synthetic.main.list_layout.*
 
 private const val RATINGID = "ratingid"
 private const val TRANSFERFRAG = "UNUSED"
@@ -26,6 +29,7 @@ private const val TRANSFERFRAG = "UNUSED"
  *
  */
 class RatingFragment : DialogFragment() {
+
     // TODO: Rename and change types of parameters
     private var ratingID: Int? = null ?: 0
     private var param2: String? = null
@@ -42,6 +46,9 @@ class RatingFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        var id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP" as Int
+
+        ratingTest = list[id].rating
         return inflater.inflate(com.example.sprint3.R.layout.fragment_rating, container, false)
 
 
@@ -53,9 +60,13 @@ class RatingFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP"
-        Log.i("lognow", "id = ${id.toString()}")
 
+        Log.i("lognow", "id = ${id.toString()}")
+        rating.text = list[id].rating.toString()
+        edit.hint=list[id].name
+        name.text=list[id].name
+       // relative.rating= list[id].rating
+        //relative.rating
     }
 
     override fun onAttach(context: Context) {
@@ -87,11 +98,14 @@ class RatingFragment : DialogFragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
+        var ratingTest = 6
         fun newInstance(param1: String, param2: String) =
             RatingFragment().apply {
                 arguments = Bundle().apply {
                     putString(RATINGID, param1)
                     putString(TRANSFERFRAG, param2)
+
+
                 }
             }
     }

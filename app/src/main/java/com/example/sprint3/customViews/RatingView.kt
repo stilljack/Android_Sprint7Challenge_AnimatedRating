@@ -6,25 +6,34 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.sprint3.R
-
+import com.example.sprint3.model.ItemsRepository.Companion.list
+import com.example.sprint3.fragments.RatingFragment as RatingFragment
 
 class RatingView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
-
+//class RatingView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
+override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+}
 companion object {
     fun startAnimation (position:Int) {
         // will get the position interacted with, then adjust the stars up or down based on the position and state of the stars at said position
         //THEN we can either write directly to ItemsRepository.list or create a seperate function to handle book keeping
-        Log.i("testtest","$position")
+        Log.i("testtest","d")
     }
 }
+
+
 
     init {
 // var test =RelativeLayout.CENTER_VERTICAL
        // val star1:ImageView = LayoutInflater.from(context).inflate(R.layout.ratingview, this, true) as ImageView
     // val imageLayoutParams = LayoutParams(100, 200)
 
-  //
-     inflate(context, R.layout.ratingview, this)
+
+
+        Log.i("is it working?", RatingFragment.ratingTest.toString() )
+
+        inflate(context, R.layout.ratingview, this)
         val star1:ImageView = findViewById(R.id.star1)
         val star2:ImageView = findViewById(R.id.star2)
         val star3:ImageView = findViewById(R.id.star3)

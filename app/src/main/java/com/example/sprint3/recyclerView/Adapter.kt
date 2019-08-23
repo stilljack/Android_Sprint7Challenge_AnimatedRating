@@ -38,6 +38,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.nameTv.text = list[position].name
+        holder.ratingTv.text=list[position].rating.toString()
         //holder.imageIv.setImageDrawable(holder.imageIv.getContext().getDrawable(shoppingList[position].resourceId))
 
         val currentSelection = list[position]
@@ -53,7 +54,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
             val fragment = RatingFragment()
             fragment.setArguments(bundle)
             manager.beginTransaction()
-                .add(fragment, "olditem")
+                .add(fragment, "first")
                 .addToBackStack("thisbacko")
                 .commit()
         }

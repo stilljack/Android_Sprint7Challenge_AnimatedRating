@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="RatingClass">
-    <attr name="textSize" format="dimension"/>
+    <attr name="rating" format="integer"/>
     <attr name="layout_weight" format="float"/>
-    <attr name="android:entries"/>
-</declare-styleable>
+    </declare-styleable>
 </resources>
