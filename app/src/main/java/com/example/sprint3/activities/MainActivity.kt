@@ -2,9 +2,14 @@ package com.example.sprint3.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.AdapterListUpdateCallback
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sprint3.R
 import com.example.sprint3.model.ItemsRepository
 import com.example.sprint3.model.ItemsRepository.Companion.list
+import com.example.sprint3.recyclerView.Adapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 //.0.planning...
 
@@ -33,5 +38,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ItemsRepository.startUp()
         println("${list}")
+
+
+        //recycle_view.setHasFixedSize(true)
+        val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        var adapter = Adapter(list)
+
+        recycle_view.setHasFixedSize(true)
+        recycle_view.layoutManager = manager
+        recycle_view.adapter = adapter
+
     }
 }
