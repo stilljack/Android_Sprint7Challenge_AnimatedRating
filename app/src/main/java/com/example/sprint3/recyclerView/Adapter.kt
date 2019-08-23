@@ -33,7 +33,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
         val currentSelection = list[position]
 
         holder.parentView.setOnClickListener {view ->
-
+        notifyItemChanged(position)
 
         }
 

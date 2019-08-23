@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.AdapterListUpdateCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sprint3.R
+import com.example.sprint3.fragments.RatingFragment
+import com.example.sprint3.model.Items
 import com.example.sprint3.model.ItemsRepository
 import com.example.sprint3.model.ItemsRepository.Companion.list
 import com.example.sprint3.recyclerView.Adapter
@@ -30,8 +32,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 //.1. model stuff added, Items is the mutablelist we'll use throughout, ItemsRepository.startUp() creates some dummy data to
 // play with along the way
+//.2. reyclerview working, if ugly TODO: fix xml for recycler view
+//.3. dialog fragment added, TODO: EDIT XML TO PROPERLY DISPLAY item.title plus item.rating as ratingview
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RatingFragment.OnFragmentInteractionListener {
+    override fun onFragmentInteraction(item: Items) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +54,15 @@ class MainActivity : AppCompatActivity() {
         recycle_view.setHasFixedSize(true)
         recycle_view.layoutManager = manager
         recycle_view.adapter = adapter
+
+        //TODO REMOVE THIS TEST
+        btn_button.setOnClickListener {
+            val fragment =
+                RatingFragment()
+            supportFragmentManager.beginTransaction()
+                .add(fragment, "test")
+                .commit()
+        }
 
     }
 }
