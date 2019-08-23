@@ -1,4 +1,4 @@
-package com.example.sprint3.CustomViews
+package com.example.sprint3.customViews
 
 import android.content.Context
 import android.util.AttributeSet

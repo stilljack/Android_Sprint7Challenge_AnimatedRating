@@ -1,8 +1,10 @@
-package com.example.sprint3.Activities
+package com.example.sprint3.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sprint3.R
+import com.example.sprint3.model.ItemsRepository
+import com.example.sprint3.model.ItemsRepository.Companion.list
 
 //.0.planning...
 
@@ -17,15 +19,19 @@ import com.example.sprint3.R
 *
 *           I've got a feeling I'm missing something from the instructions so back
 *       to the whiteboard for another ten to continue planning
-
-*
-*
+*                   ...maybe not
 *
 * */
+
+//.1. model stuff added, Items is the mutablelist we'll use throughout, ItemsRepository.startUp() creates some dummy data to
+// play with along the way
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ItemsRepository.startUp()
+        println("${list}")
     }
 }

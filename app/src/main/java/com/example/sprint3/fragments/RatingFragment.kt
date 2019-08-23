@@ -1,4 +1,4 @@
-package com.example.sprint3.Fragments
+package com.example.sprint3.fragments
 
 import android.content.Context
 import android.net.Uri
