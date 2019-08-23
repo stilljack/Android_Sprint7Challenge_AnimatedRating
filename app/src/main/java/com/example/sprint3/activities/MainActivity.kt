@@ -2,6 +2,9 @@ package com.example.sprint3.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sprint3.R
@@ -34,8 +37,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 //.2. reyclerview working, if ugly TODO: fix xml for recycler view
 //.3. dialog fragment added, TODO: EDIT XML TO PROPERLY DISPLAY item.title plus item.rating as ratingview
 //.4. Adding customview:RatingView
+//.5. adapter to fragment
 
-class MainActivity : AppCompatActivity(), RatingFragment.OnFragmentInteractionListener {
+class MainActivity() : AppCompatActivity(), RatingFragment.OnFragmentInteractionListener{
+    /*Adapter.OnRecyclerInterfaceListener*/
+/*    override fun onItemSelected(item: Items) {
+        Log.i("itworked",item.toString())
+    }*/
+    companion object{
+        const val ITEM_KEY ="1"
+    }
+
+
+
     override fun onFragmentInteraction(item: Items) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -46,7 +60,6 @@ class MainActivity : AppCompatActivity(), RatingFragment.OnFragmentInteractionLi
         ItemsRepository.startUp()
         println("${list}")
 
-
         //recycle_view.setHasFixedSize(true)
         val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         var adapter = Adapter(list)
@@ -55,14 +68,25 @@ class MainActivity : AppCompatActivity(), RatingFragment.OnFragmentInteractionLi
         recycle_view.layoutManager = manager
         recycle_view.adapter = adapter
 
-        //TODO REMOVE THIS TEST
-        /*btn_button.setOnClickListener {
-            val fragment =
-                RatingFragment()
-            supportFragmentManager.beginTransaction()
-                .add(fragment, "test")
-                .commit()
-        }*/
+
+
+
 
     }
+/*
+    fun dialog(item:Items) {
+ */
+/*       val bundle = Bundle()
+        bundle.putString(MainActivity.ITEM_KEY, id)*//*
+
+        val fragment =
+            RatingFragment()
+        supportFragmentManager.beginTransaction()
+            .add(fragment, "olditem")
+            .commit()
+    }
+*/
+
+
 }
+

@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.DialogFragment
+import com.example.sprint3.activities.MainActivity
 import com.example.sprint3.model.Items
 
 private const val RATINGID = "ratingid"
@@ -52,8 +53,8 @@ class RatingFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = arguments?.getString(TRANSFERFRAG) ?: "AWW CRAP"
-        Log.i("lognow", "id = $id")
+        val id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP"
+        Log.i("lognow", "id = ${id.toString()}")
 
     }
 

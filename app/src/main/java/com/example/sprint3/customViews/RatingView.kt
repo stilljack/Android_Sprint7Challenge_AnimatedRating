@@ -2,6 +2,7 @@ package com.example.sprint3.customViews
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.sprint3.R
@@ -13,6 +14,7 @@ companion object {
     fun startAnimation (position:Int) {
         // will get the position interacted with, then adjust the stars up or down based on the position and state of the stars at said position
         //THEN we can either write directly to ItemsRepository.list or create a seperate function to handle book keeping
+        Log.i("testtest","$position")
     }
 }
 

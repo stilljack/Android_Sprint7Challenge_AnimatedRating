@@ -8,13 +8,14 @@
     tools:context=".activities.MainActivity"
     android:id="@+id/ll"
 android:orientation="vertical"
+    android:backgroundTint="#C4C4C4"
 >
 
- <com.example.sprint3.customViews.RatingView
+<!-- <com.example.sprint3.customViews.RatingView
      android:layout_width="500dp"
         android:layout_height="500dp"
         app:layout_constraintTop_toTopOf="@id/ll"
-        />
+        />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_view"
@@ -22,7 +23,8 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         app:layout_constraintTop_toBottomOf="@id/ll"
-        tools:listitem="@layout/list_layout"></androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/list_layout"
+        android:background="#C4C4C4"></androidx.recyclerview.widget.RecyclerView>
 
     <FrameLayout
         android:id="@+id/bottom_sheet"
