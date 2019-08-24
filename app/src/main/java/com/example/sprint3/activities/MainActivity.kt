@@ -40,20 +40,18 @@ import kotlinx.android.synthetic.main.activity_main.*
 //.5. adapter to fragment
 //.6 TODO: Make animation more fluid... less crap
 
-class MainActivity() : AppCompatActivity(), RatingFragment.OnFragmentInteractionListener{
+class MainActivity() : AppCompatActivity(), ReplaceFragmentListener{
     /*Adapter.OnRecyclerInterfaceListener*/
 /*    override fun onItemSelected(item: Items) {
         Log.i("itworked",item.toString())
     }*/
     companion object{
         const val ITEM_KEY ="1"
+        var adapter:Adapter? = null
+
+
     }
 
-
-
-    override fun onFragmentInteraction(item: Items) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +61,7 @@ class MainActivity() : AppCompatActivity(), RatingFragment.OnFragmentInteraction
 
         //recycle_view.setHasFixedSize(true)
         val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        var adapter = Adapter(list)
+        adapter = Adapter(list)
 
         recycle_view.layoutManager = manager
         recycle_view.adapter = adapter
@@ -87,6 +85,7 @@ class MainActivity() : AppCompatActivity(), RatingFragment.OnFragmentInteraction
     }
 */
 
-
+}
+interface ReplaceFragmentListener {
 }
 
