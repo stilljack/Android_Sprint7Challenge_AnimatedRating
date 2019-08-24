@@ -3,6 +3,7 @@ package com.example.sprint3.fragments
 import android.content.Context
 
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,8 +54,9 @@ class RatingFragment : DialogFragment() {
         // Inflate the layout for this fragment
         var id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP" as Int
 
-
-
+        ratingTest=list[id].rating
+        nameTest=list[id].name
+        idTrack=id
         return inflater.inflate(com.example.sprint3.R.layout.fragment_rating, container, false)
 
 
@@ -64,12 +66,13 @@ class RatingFragment : DialogFragment() {
     //
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        var id = arguments?.getInt(MainActivity.ITEM_KEY) as Int
 
         Log.i("lognow", "name = ${list[id].name}id = ${id.toString()}")
 
 
-        edit.setText(list[id].name)
+        edit.setText(list[idTrack].name)
+
 
        // if (edit.text.toString()==list[id])
         btn.setOnClickListener {
@@ -115,6 +118,8 @@ class RatingFragment : DialogFragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         var ratingTest = 6
+        var nameTest ="wrong"
+        var idTrack =0
         fun newInstance(param1: String, param2: String) =
             RatingFragment().apply {
                 arguments = Bundle().apply {
