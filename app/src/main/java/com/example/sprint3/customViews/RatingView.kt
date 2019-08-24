@@ -9,7 +9,6 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.sprint3.R
-import com.example.sprint3.model.ItemsRepository.Companion.list
 import kotlinx.android.synthetic.main.ratingview.view.*
 import com.example.sprint3.fragments.RatingFragment as RatingFragment
 
@@ -33,7 +32,7 @@ companion object {
         var testString = attributes.getString(R.styleable.RatingView_example)
         Toast.makeText(context, testString, Toast.LENGTH_SHORT).show()
         attributes.recycle()
-        Log.i("is it working?", RatingFragment.ratingTest.toString() )
+        Log.i("is it working?", RatingFragment.currentItemRating.toString() )
 
 
         inflate(context, R.layout.ratingview, this)
@@ -45,7 +44,7 @@ companion object {
         star1.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.blacktored))
 
  invalidate()
-        startAnimation(RatingFragment.ratingTest)
+        startAnimation(RatingFragment.currentItemRating)
    star1.setOnClickListener{
          startAnimation(1)
      }
@@ -77,6 +76,7 @@ companion object {
             star4.setImageDrawable(starEmpty)
             star5.setImageDrawable(starEmpty)
             (starFull as Animatable).start()
+            (starEmpty as Animatable).start()
             invalidate()
             finalRating=1
         }
@@ -87,6 +87,7 @@ companion object {
             star4.setImageDrawable(starEmpty)
             star5.setImageDrawable(starEmpty)
             (starFull as Animatable).start()
+            (starEmpty as Animatable).start()
             invalidate()
             finalRating=2
         }
@@ -97,6 +98,7 @@ companion object {
             star4.setImageDrawable(starEmpty)
             star5.setImageDrawable(starEmpty)
             (starFull as Animatable).start()
+            (starEmpty as Animatable).start()
             invalidate()
             finalRating=3
         }
@@ -107,6 +109,7 @@ companion object {
                 star4.setImageDrawable(starFull)
                 star5.setImageDrawable(starEmpty)
             (starFull as Animatable).start()
+            (starEmpty as Animatable).start()
             invalidate()
             finalRating=4
             }
@@ -117,6 +120,7 @@ companion object {
                 star4.setImageDrawable(starFull)
                 star5.setImageDrawable(starFull)
             (starFull as Animatable).start()
+            (starEmpty as Animatable).start()
             invalidate()
             finalRating=5
             }

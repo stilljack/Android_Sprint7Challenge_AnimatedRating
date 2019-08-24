@@ -47,6 +47,7 @@ class MainActivity() : AppCompatActivity(), ReplaceFragmentListener{
     }*/
     companion object{
         const val ITEM_KEY ="1"
+        const val ITEMTRANSFER = "2"
         var adapter:Adapter? = null
 
 
@@ -67,7 +68,19 @@ class MainActivity() : AppCompatActivity(), ReplaceFragmentListener{
         recycle_view.adapter = adapter
 
 
-
+btn_add.setOnClickListener {
+    val manager = supportFragmentManager
+    val bundle = Bundle()
+    bundle.putInt(ITEM_KEY, list.size)
+    list.add(Items("new",1))
+    var blank = Items("Enter new name", 1)
+    val fragment = RatingFragment.newInstance(list.size,blank)
+    fragment.setArguments(bundle)
+    manager.beginTransaction()
+        .add(fragment, "add")
+        .addToBackStack("thisbacko")
+        .commit()
+}
 
 
     }

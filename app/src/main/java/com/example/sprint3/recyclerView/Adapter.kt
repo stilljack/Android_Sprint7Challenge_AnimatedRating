@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.list_layout.view.*
 import androidx.appcompat.app.AppCompatActivity
 import android.R
 import android.os.Bundle
+import com.example.sprint3.activities.MainActivity.Companion.ITEMTRANSFER
+import com.example.sprint3.activities.MainActivity.Companion.ITEM_KEY
 
 
 class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewHolder>() {/*
@@ -51,7 +53,8 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
 
             val manager = (view.context as AppCompatActivity).supportFragmentManager
             val bundle = Bundle()
-            bundle.putInt(MainActivity.ITEM_KEY, position)
+            bundle.putInt(ITEM_KEY, position)
+            bundle.putSerializable(ITEMTRANSFER,currentSelection)
             val fragment = RatingFragment.newInstance(position,currentSelection)
             fragment.setArguments(bundle)
             manager.beginTransaction()

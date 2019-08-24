@@ -50,8 +50,8 @@ class RatingFragment : DialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         var id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP" as Int
-
-        ratingTest=list[id].rating
+        item= list[id]
+        currentItemRating=list[id].rating
         nameTest=list[id].name
         idTrack=id
         return inflater.inflate(com.example.sprint3.R.layout.fragment_rating, container, false)
@@ -63,22 +63,22 @@ class RatingFragment : DialogFragment() {
     //
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var id = arguments?.getInt(MainActivity.ITEM_KEY) as Int
 
-        Log.i("lognow", "name = ${list[id].name}id = ${id.toString()}")
+        Log.i("lognow", "name = ${list[idTrack].name}id = ${id.toString()}")
 
         
-        edit.setText(item.name)
-
+        edit.setText(item!!.name)
 
        // if (edit.text.toString()==list[id])
         btn.setOnClickListener {
             if (chkbx.isChecked) {
-                list.removeAt(id)
+                list.removeAt(idTrack)
+                MainActivity.adapter!!.notifyItemRemoved(idTrack)
                 getActivity()!!.getSupportFragmentManager().popBackStack();
             }
             else if (list[idTrack].name==edit.text.toString()) {
                 list[idTrack].rating= finalRating
+                MainActivity.adapter!!.notifyItemChanged(idTrack)
                 getActivity()!!.getSupportFragmentManager().popBackStack();
             }
             else {
@@ -120,7 +120,7 @@ class RatingFragment : DialogFragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        var ratingTest = 6
+        var currentItemRating = 6
         var nameTest ="wrong"
         var idTrack =0
         fun newInstance(id: Int, item: Items) =
