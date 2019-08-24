@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.sprint3.R
 import com.example.sprint3.model.ItemsRepository.Companion.list
@@ -29,7 +30,8 @@ companion object {
        // val star1:ImageView = LayoutInflater.from(context).inflate(R.layout.ratingview, this, true) as ImageView
     // val imageLayoutParams = LayoutParams(100, 200)
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.RatingView)
-
+var testString = attributes.getString(R.styleable.RatingView_example)
+        Toast.makeText(context, testString, Toast.LENGTH_SHORT).show()
         attributes.recycle()
         Log.i("is it working?", RatingFragment.ratingTest.toString() )
 

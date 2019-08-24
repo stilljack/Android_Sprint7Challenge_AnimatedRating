@@ -70,6 +70,8 @@ class RatingFragment : DialogFragment() {
 
 
         edit.setText(list[id].name)
+
+       // if (edit.text.toString()==list[id])
         btn.setOnClickListener {
             list.add(Items(edit.text.toString(), finalRating))
            // recycle_view.adapter?.notifyItemInserted(id) ?: 0

@@ -28,6 +28,7 @@
       app:layout_constraintTop_toBottomOf="@id/edit"
         android:id="@+id/relative"
         app:img="@drawable/blacktored"
+        app:example="text from fragment_rating,via typed array {that got recycled{"
         />
     <Button
         android:layout_width="wrap_content"
