@@ -76,14 +76,22 @@ class RatingFragment : DialogFragment() {
 
        // if (edit.text.toString()==list[id])
         btn.setOnClickListener {
-            list.add(Items(edit.text.toString(), finalRating))
-           // recycle_view.adapter?.notifyItemInserted(id) ?: 0
-            getActivity()!!.getSupportFragmentManager().popBackStack();
+            if (chkbx.isChecked) {
+                list.removeAt(id)
+                getActivity()!!.getSupportFragmentManager().popBackStack();
+            }
+            else if (list[idTrack].name==edit.text.toString()) {
+                list[idTrack].rating= finalRating
+                getActivity()!!.getSupportFragmentManager().popBackStack();
+            }
+            else {
+                list.add(Items(edit.text.toString(), finalRating))
+                getActivity()!!.getSupportFragmentManager().popBackStack();
+                // recycle_view.adapter?.notifyItemInserted(id) ?: 0
+            }
         }
-        btn2.setOnClickListener {
-            list.removeAt(id)
-            getActivity()!!.getSupportFragmentManager().popBackStack();
-        }
+
+
        // relative.rating= list[id].rating
         //relative.rating
     }

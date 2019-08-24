@@ -30,7 +30,7 @@ companion object {
        // val star1:ImageView = LayoutInflater.from(context).inflate(R.layout.ratingview, this, true) as ImageView
     // val imageLayoutParams = LayoutParams(100, 200)
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.RatingView)
-var testString = attributes.getString(R.styleable.RatingView_example)
+        var testString = attributes.getString(R.styleable.RatingView_example)
         Toast.makeText(context, testString, Toast.LENGTH_SHORT).show()
         attributes.recycle()
         Log.i("is it working?", RatingFragment.ratingTest.toString() )
