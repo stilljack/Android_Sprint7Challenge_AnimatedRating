@@ -6,11 +6,9 @@ import android.util.AttributeSet
 import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.sprint3.R
 import kotlinx.android.synthetic.main.ratingview.view.*
-import androidx.annotation.RawRes
 import com.example.sprint3.activities.MainActivity
 import com.example.sprint3.model.ItemsRepository.Companion.list
 
@@ -25,11 +23,11 @@ companion object {
     var ida:Int =0
 }
 
-    fun setRating(@RawRes rating: Int) {
+    fun setRating(rating: Int) {
         finalRating=rating
         setInitial(finalRating)
     }
-    fun setidref(@RawRes idref: Int) {
+    fun setidref(idref: Int) {
         ida=idref.toInt()
     }
     init {
@@ -49,8 +47,6 @@ companion object {
         val star3:ImageView = findViewById(R.id.star3)
         val star4:ImageView = findViewById(R.id.star4)
         val star5:ImageView = findViewById(R.id.star5)
-        star1.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.blacktored))
-
  invalidate()
 
    star1.setOnClickListener{

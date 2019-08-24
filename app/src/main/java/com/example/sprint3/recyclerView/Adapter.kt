@@ -64,9 +64,6 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
                 .addToBackStack("thisbacko")
                 .commit()
         }
-        holder.ratingView.setOnClickListener{
-            notifyItemChanged(position)
-        }
     }
 
 

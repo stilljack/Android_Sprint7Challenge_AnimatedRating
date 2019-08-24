@@ -50,7 +50,6 @@ class MainActivity() : AppCompatActivity(), ReplaceFragmentListener{
         const val ITEMTRANSFER = "2"
         var adapter:Adapter? = null
 
-
     }
 
 
@@ -62,10 +61,13 @@ class MainActivity() : AppCompatActivity(), ReplaceFragmentListener{
 
         //recycle_view.setHasFixedSize(true)
         val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        adapter = Adapter(list)
+        adapter=Adapter(list)
+
+
 
         recycle_view.layoutManager = manager
         recycle_view.adapter = adapter
+
 
 
 btn_add.setOnClickListener {
