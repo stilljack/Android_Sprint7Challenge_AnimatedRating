@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="RatingView">
     <attr name="rating" format="integer"/>
+        <attr name="idref" format="integer"/>
     <attr name="img" format="reference"/>
         <attr name="example" format="string"/>
     </declare-styleable>

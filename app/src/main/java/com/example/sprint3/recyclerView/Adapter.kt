@@ -18,6 +18,7 @@ import android.R
 import android.os.Bundle
 import com.example.sprint3.activities.MainActivity.Companion.ITEMTRANSFER
 import com.example.sprint3.activities.MainActivity.Companion.ITEM_KEY
+import com.example.sprint3.customViews.RatingView
 
 
 class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewHolder>() {/*
@@ -42,13 +43,14 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.nameTv.text = list[position].name
         holder.ratingTv.text=list[position].rating.toString()
+        holder.ratingView.setRating(list[position].rating)
+        holder.ratingView.setidref(position)
         //holder.imageIv.setImageDrawable(holder.imageIv.getContext().getDrawable(shoppingList[position].resourceId))
 
         val currentSelection = list[position]
 
-        holder.parentView.setOnClickListener {view ->
+        holder.nameTv.setOnClickListener {view ->
            /* callback?.onItemSelected(currentSelection)*/
-
 
 
             val manager = (view.context as AppCompatActivity).supportFragmentManager
@@ -61,15 +63,17 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
                 .add(fragment, "first")
                 .addToBackStack("thisbacko")
                 .commit()
-            notifyDataSetChanged()
         }
-
+        holder.ratingView.setOnClickListener{
+            notifyItemChanged(position)
+        }
     }
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTv: TextView = view.tv_item_name
         val ratingTv: TextView = view.tv_rating
+        val ratingView: RatingView = view.relative
         val parentView: LinearLayout = view.llcardview
 
    /*     fun bindModel(currentSelection: Items) {

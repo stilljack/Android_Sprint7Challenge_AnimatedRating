@@ -11,7 +11,8 @@ import androidx.core.content.ContextCompat
 import com.example.sprint3.R
 import kotlinx.android.synthetic.main.ratingview.view.*
 import androidx.annotation.RawRes
-
+import com.example.sprint3.activities.MainActivity
+import com.example.sprint3.model.ItemsRepository.Companion.list
 
 
 class RatingView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
@@ -20,21 +21,24 @@ override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 }
 companion object {
-    var finalRating:Int = 0
+    var finalRating:Int = 5
+    var ida:Int =0
 }
 
     fun setRating(@RawRes rating: Int) {
         finalRating=rating
-        startAnimation(finalRating)
+        setInitial(finalRating)
     }
-
+    fun setidref(@RawRes idref: Int) {
+        ida=idref.toInt()
+    }
     init {
 // var test =RelativeLayout.CENTER_VERTICAL
        // val star1:ImageView = LayoutInflater.from(context).inflate(R.layout.ratingview, this, true) as ImageView
     // val imageLayoutParams = LayoutParams(100, 200)
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.RatingView)
         var testString = attributes.getString(R.styleable.RatingView_example)
-        Toast.makeText(context, testString, Toast.LENGTH_SHORT).show()
+ //       Toast.makeText(context, testString, Toast.LENGTH_SHORT).show()
         attributes.recycle()
         Log.i("is it working?", finalRating.toString())
 
@@ -70,6 +74,30 @@ companion object {
 
 
         }
+    fun setInitial (pos:Int){
+        val starFull = ContextCompat.getDrawable(context, R.drawable.redtoblack)
+        val starEmpty = ContextCompat.getDrawable(context, R.drawable.blacktored)
+        for (i in 1 .. finalRating) {
+            when (i){
+                1 -> star1.setImageDrawable(starFull)
+                2 -> star2.setImageDrawable(starFull)
+                3 ->star3.setImageDrawable(starFull)
+                4 -> star4.setImageDrawable(starFull)
+                5 ->star5.setImageDrawable(starFull)
+            }
+        }
+        for (i in finalRating+1 .. 5) {
+            when (i) {
+                1 -> star1.setImageDrawable(starEmpty) /// this should never trigger...
+                2 -> star2.setImageDrawable(starEmpty)
+                3 -> star3.setImageDrawable(starEmpty)
+                4 -> star4.setImageDrawable(starEmpty)
+                5 -> star5.setImageDrawable(starEmpty)
+            }
+        }
+            (starFull as Animatable).start()
+            (starEmpty as Animatable).start()
+    }
     fun startAnimation (position:Int) {
         val starFull = ContextCompat.getDrawable(context, R.drawable.redtoblack)
         val starEmpty = ContextCompat.getDrawable(context, R.drawable.blacktored)
@@ -130,7 +158,13 @@ companion object {
             }
         // will get the position interacted with, then adjust the stars up or down based on the position and state of the stars at said position
         //THEN we can either write directly to ItemsRepository.list or create a seperate function to handle book keeping
+        cleanup()
         Log.i("testtest","d")
+    }
+
+    fun cleanup(){
+        list[ida].rating= finalRating
+        MainActivity.adapter!!.notifyItemChanged(ida)
     }
     }
 

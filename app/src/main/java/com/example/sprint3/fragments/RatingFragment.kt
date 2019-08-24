@@ -66,7 +66,7 @@ class RatingFragment : DialogFragment() {
 
         Log.i("lognow", "name = ${list[idTrack].name}id = ${id.toString()}")
 
-        
+        relative.setidref(idTrack)
         edit.setText(item!!.name)
         relative.setRating(item!!.rating)
        // if (edit.text.toString()==list[id])
