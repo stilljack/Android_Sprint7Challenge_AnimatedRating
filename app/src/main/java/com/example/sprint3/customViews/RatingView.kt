@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.sprint3.R
 import kotlinx.android.synthetic.main.ratingview.view.*
-import com.example.sprint3.fragments.RatingFragment as RatingFragment
+import androidx.annotation.RawRes
+
+
 
 class RatingView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
 //class RatingView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
@@ -18,11 +20,13 @@ override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 }
 companion object {
-    var finalRating = 1
-
+    var finalRating:Int = 0
 }
 
-
+    fun setRating(@RawRes rating: Int) {
+        finalRating=rating
+        startAnimation(finalRating)
+    }
 
     init {
 // var test =RelativeLayout.CENTER_VERTICAL
@@ -32,7 +36,7 @@ companion object {
         var testString = attributes.getString(R.styleable.RatingView_example)
         Toast.makeText(context, testString, Toast.LENGTH_SHORT).show()
         attributes.recycle()
-        Log.i("is it working?", RatingFragment.currentItemRating.toString() )
+        Log.i("is it working?", finalRating.toString())
 
 
         inflate(context, R.layout.ratingview, this)
@@ -44,7 +48,7 @@ companion object {
         star1.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.blacktored))
 
  invalidate()
-        startAnimation(RatingFragment.currentItemRating)
+
    star1.setOnClickListener{
          startAnimation(1)
      }

@@ -68,7 +68,7 @@ class RatingFragment : DialogFragment() {
 
         
         edit.setText(item!!.name)
-
+        relative.setRating(item!!.rating)
        // if (edit.text.toString()==list[id])
         btn.setOnClickListener {
             if (chkbx.isChecked) {
