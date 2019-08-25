@@ -8,29 +8,31 @@
     android:gravity="center"
     android:padding="4dp">
 <ImageView
-    android:layout_width="20dp"
+    android:layout_weight="1"
+    android:layout_width="0dp"
     android:layout_height="20dp"
     android:id="@+id/star1"
     android:src="@drawable/blacktored"
     />
     <ImageView
-        android:layout_width="20dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:id="@+id/star2"
         android:src="@drawable/blacktored"
         android:layout_toRightOf="@id/star1"
         />
     <ImageView
-
-        android:layout_width="20dp"
+android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:id="@+id/star3"
         android:src="@drawable/blacktored"
         android:layout_toRightOf="@id/star2"
         />
     <ImageView
-
-        android:layout_width="20dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:id="@+id/star4"
         android:src="@drawable/blacktored"
@@ -38,8 +40,8 @@
         android:layout_toRightOf="@id/star3"
         />
     <ImageView
-
-        android:layout_width="20dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:id="@+id/star5"
         android:src="@drawable/blacktored"

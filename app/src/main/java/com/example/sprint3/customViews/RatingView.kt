@@ -91,8 +91,8 @@ companion object {
                 5 -> star5.setImageDrawable(starEmpty)
             }
         }
-            (starFull as Animatable).start()
-            (starEmpty as Animatable).start()
+        (starFull as Animatable).start()
+        (starEmpty as Animatable).start()
     }
     fun startAnimation (position:Int) {
         val starFull = ContextCompat.getDrawable(context, R.drawable.redtoblack)
