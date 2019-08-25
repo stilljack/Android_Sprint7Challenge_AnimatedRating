@@ -58,7 +58,7 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
             val manager = (view.context as AppCompatActivity).supportFragmentManager
             val bundle = Bundle()
             bundle.putInt(ITEM_KEY, position)
-            bundle.putSerializable(ITEMTRANSFER,currentSelection)
+            bundle.putString(ITEMTRANSFER,currentSelection.name)
             val fragment = RatingFragment.newInstance(position,currentSelection)
             fragment.setArguments(bundle)
             manager.beginTransaction()

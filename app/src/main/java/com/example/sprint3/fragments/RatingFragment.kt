@@ -49,7 +49,19 @@ class RatingFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var id = arguments?.getInt(MainActivity.ITEM_KEY) ?: "AWW CRAP" as Int
+        var id = arguments?.getInt(MainActivity.ITEM_KEY) ?: 0
+        var namecheck =arguments?.getString(MainActivity.ITEMTRANSFER)  ?: "AWW CRAP" as String
+        for(i in list.size -1 downTo 0){
+            if (list[i].name == namecheck){
+                id = i
+
+            }
+            else if (i == 0 && list[i].name != namecheck) {
+                //i don't believe this can ever trigger, but if it can.. sure whatever...
+                id= list.size
+                list.add(Items("new entry", 1))
+            }
+        }
         item= list[id]
         currentItemRating=list[id].rating
         nameTest=list[id].name
