@@ -47,6 +47,7 @@ companion object {
         val star3:ImageView = findViewById(R.id.star3)
         val star4:ImageView = findViewById(R.id.star4)
         val star5:ImageView = findViewById(R.id.star5)
+
  invalidate()
 
    star1.setOnClickListener{
