@@ -83,6 +83,7 @@ class RatingFragment : DialogFragment() {
             }
             else {
                 list.add(Items(edit.text.toString(), finalRating))
+                MainActivity.adapter!!.notifyItemInserted(list.size)
                 getActivity()!!.getSupportFragmentManager().popBackStack();
                 // recycle_view.adapter?.notifyItemInserted(id) ?: 0
             }

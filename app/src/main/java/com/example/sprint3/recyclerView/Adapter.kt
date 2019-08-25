@@ -44,7 +44,9 @@ class Adapter(val list: MutableList<Items>) : RecyclerView.Adapter<Adapter.ViewH
         holder.nameTv.text = list[position].name
         holder.ratingTv.text=list[position].rating.toString()
         holder.ratingView.setRating(list[position].rating)
-        holder.ratingView.setidref(position)
+
+        //this ain't working cause we're only setting it on the last view created
+      holder.ratingView.setidref(position)
         //holder.imageIv.setImageDrawable(holder.imageIv.getContext().getDrawable(shoppingList[position].resourceId))
 
         val currentSelection = list[position]

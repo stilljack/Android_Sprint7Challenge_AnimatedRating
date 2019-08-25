@@ -35,7 +35,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 //.1. model stuff added, Items is the mutablelist we'll use throughout, ItemsRepository.startUp() creates some dummy data to
 // play with along the way
 //.2. reyclerview working, if ugly TODO: fix xml for recycler view
-//.3. dialog fragment added, TODO: EDIT XML TO PROPERLY DISPLAY item.title plus item.rating as ratingview
+//.3. dialog fragment added, TODOne: EDIT XML TO PROPERLY DISPLAY item.title plus item.rating as ratingview
 //.4. Adding customview:RatingView
 //.5. adapter to fragment
 //.6 TODO: Make animation more fluid... less crap

@@ -20,9 +20,9 @@ override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 }
 companion object {
     var finalRating:Int = 5
-    var ida:Int =0
-}
 
+}
+    private var ida:Int =0
     fun setRating(rating: Int) {
         finalRating=rating
         setInitial(finalRating)
@@ -160,7 +160,7 @@ companion object {
 
     fun cleanup(){
         list[ida].rating= finalRating
-        MainActivity.adapter!!.notifyItemChanged(ida)
+       MainActivity.adapter!!.notifyItemChanged(ida)
     }
     }
 
