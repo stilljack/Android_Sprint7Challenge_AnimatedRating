@@ -33,7 +33,8 @@
             app:layout_constraintHorizontal_weight="2"
             app:layout_constraintTop_toBottomOf="@id/edit"
             app:layout_constraintLeft_toLeftOf="@id/cl"
-            app:layout_constraintVertical_weight="2" />
+            app:layout_constraintVertical_weight="2"
+            android:transitionName="sharedrv"/>
 
         <Button
             android:id="@+id/btn"

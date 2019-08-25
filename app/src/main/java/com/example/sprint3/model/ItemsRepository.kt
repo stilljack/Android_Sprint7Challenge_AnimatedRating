@@ -6,11 +6,11 @@ companion object {
 
     fun startUp(){
         //make some default items on startup
-        list.add(Items("item1", 5))
-        list.add(Items("item2", 3))
-        list.add(Items("item3", 2))
-        list.add(Items("item4", 1))
-        list.add(Items("item5", 4))
+        list.add(Items("apple", 5))
+        list.add(Items("bear", 3))
+        list.add(Items("crustacean", 2))
+        list.add(Items("dentist", 1))
+        list.add(Items("elizabeth", 4))
     }
 
 }

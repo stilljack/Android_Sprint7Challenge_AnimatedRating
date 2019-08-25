@@ -39,7 +39,7 @@
         android:id="@+id/relative"
         app:img="@drawable/blacktored"
         app:example="text from fragment_rating,via typed array {that got recycled{"
-        />
+        android:transitionName="sharedrv"/>
 
 </LinearLayout>
 </androidx.cardview.widget.CardView>
